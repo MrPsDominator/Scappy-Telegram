@@ -1,0 +1,13 @@
+services:
+  scappy-telegram:
+    build: .
+    container_name: scappy-telegram
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - scappy_telegram_data:/app/data
+
+volumes:
+  scappy_telegram_data:
