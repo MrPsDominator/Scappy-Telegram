@@ -19,8 +19,9 @@
 
 - Definizione dei requisiti funzionali.
 - Preparazione dei confini del codice: ingest, cleaning, deduplica, validazione, publish.
-- Deploy non ancora eseguito: mancano canali, token Telegram e URL validatore.
+- Deploy non ancora eseguito: mancano canali, credenziali Telegram reali e, per publish reale, token bot.
 - Preparazione della prima roadmap tecnica.
+- Implementazione in corso del primo vertical slice operativo in `DRY_RUN`.
 
 ## Decisioni provvisorie
 
@@ -32,6 +33,20 @@
 - Usare `VALIDATOR_MODE=local` come default iniziale.
 - Impostare `STARTUP_BACKFILL_LIMIT=0` per evitare import storico.
 - Impostare `RETENTION_DAYS=3` come default usa e getta.
+- Salvare anche messaggi scartati in SQLite per poter raffinare parser/validator da esempi reali.
+
+## Cosa puo fare Codex
+
+- Implementare e testare scaffold, storage, parser, validatore locale, runner e Docker.
+- Preparare deploy sulla VM Docker.
+- Analizzare esempi reali anonimizzati e migliorare le regole.
+
+## Cosa serve dall'utente
+
+- `TELEGRAM_API_ID` e `TELEGRAM_API_HASH` da `my.telegram.org`.
+- Account Telegram autorizzato a leggere i canali sorgente.
+- Elenco `SOURCE_CHANNELS`.
+- Quando si pubblichera davvero: bot token e canale destinazione privato.
 
 ## Domande aperte principali
 

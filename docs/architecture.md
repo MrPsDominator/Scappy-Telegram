@@ -55,6 +55,11 @@ Il cleaner deve essere conservativo: meglio scartare un candidato ambiguo o mand
 
 Mantiene memoria delle offerte gia viste. All'inizio basta SQLite con volume Docker persistente; se il servizio cresce o deve girare con piu worker, si passa a PostgreSQL.
 
+Tabelle iniziali:
+
+- `raw_messages`: messaggi letti, inclusi scarti e duplicati, con retention breve;
+- `offers`: candidati offerta, validazione e risultato publish.
+
 Chiavi possibili:
 
 - canale sorgente + id messaggio;
@@ -104,6 +109,18 @@ Deve ricevere solo offerte approvate. In caso di errore Telegram, il tentativo v
 - `storage.py`: persistenza SQLite.
 - `telegram_ingest.py`: confine Telethon.
 - `worker.py`: orchestrazione pipeline.
+- `runtime.py`: comandi operativi e loop del servizio.
+
+## Comandi runtime
+
+```text
+scappy-telegram init-db       crea/aggiorna schema SQLite
+scappy-telegram check-config  valida la configurazione per run
+scappy-telegram login         crea sessione Telethon persistente
+scappy-telegram run           ascolta nuovi messaggi e processa pipeline
+```
+
+Il comando `run` ascolta i nuovi messaggi. Il backfill e disabilitato per default con `STARTUP_BACKFILL_LIMIT=0`.
 
 ## Deploy previsto
 

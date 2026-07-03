@@ -86,6 +86,27 @@ pytest
 
 Poi compilare `.env` con credenziali Telegram, canali sorgente, bot di destinazione e URL del validatore.
 
+Comandi disponibili:
+
+```powershell
+scappy-telegram init-db
+scappy-telegram check-config
+scappy-telegram login
+scappy-telegram run
+```
+
+Uso consigliato per il primo test:
+
+1. crea `.env` da `.env.example`;
+2. compila `TELEGRAM_API_ID`, `TELEGRAM_API_HASH` e `SOURCE_CHANNELS`;
+3. lascia `DRY_RUN=true`;
+4. esegui `scappy-telegram login` per creare la sessione Telethon;
+5. esegui `scappy-telegram run` e osserva log/database senza pubblicare nulla.
+
+Con `DRY_RUN=true` non servono ancora `TELEGRAM_BOT_TOKEN` e `DESTINATION_CHANNEL`.
+
+`SOURCE_CHANNELS` accetta username o ID numerici separati da virgola, per esempio `deals_channel,-100123456789`.
+
 ## Domande aperte residue
 
 - Il canale finale deve mostrare link originale pulito, link al negozio, o nessun link?

@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir .
 
 VOLUME ["/app/data"]
 
-CMD ["scappy-telegram"]
+CMD ["scappy-telegram", "run"]

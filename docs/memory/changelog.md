@@ -14,3 +14,11 @@
 - Registrate decisioni prodotto: canali misti, solo nuovi messaggi, retention breve, uso personale.
 - Reso il validatore HTTP opzionale e aggiunto validatore locale iniziale.
 - Aggiunte configurazioni `VALIDATOR_MODE`, `RETENTION_DAYS` e `STARTUP_BACKFILL_LIMIT`.
+
+## 2026-07-04
+
+- Aggiunti comandi CLI `run`, `login`, `init-db` e `check-config`.
+- Aggiunto runner operativo per ascoltare nuovi messaggi Telegram in `DRY_RUN`.
+- Esteso storage SQLite con tabella `raw_messages` per messaggi grezzi, scarti e duplicati.
+- Aggiornato worker per restituire decisioni di pipeline strutturate.
+- Aggiunto supporto per canali sorgente configurati come username o ID numerici.

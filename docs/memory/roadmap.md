@@ -12,10 +12,12 @@
 
 ## Fase 1 - Proof of concept Telegram
 
-- [ ] Autenticare una sessione Telegram autorizzata.
-- [ ] Leggere messaggi da un canale sorgente di test.
+- [x] Aggiungere comando `login` per sessione Telegram autorizzata.
+- [x] Aggiungere runner `run` per ascolto nuovi messaggi.
+- [ ] Autenticare una sessione Telegram reale.
+- [ ] Leggere messaggi da un canale sorgente reale di test.
 - [ ] Avviare listener solo nuovi messaggi, senza backfill storico.
-- [ ] Salvare messaggi grezzi e metadati minimi.
+- [x] Salvare messaggi grezzi e metadati minimi.
 - [ ] Pubblicare un messaggio di test nel canale finale tramite bot.
 - [x] Verificare accesso SSH e Docker sulla VM senza toccare le altre stack.
 - [ ] Verificare deploy container sulla VM Docker senza toccare le altre stack.
@@ -36,9 +38,9 @@
 - [ ] Evitare ripubblicazioni dello stesso annuncio.
 - [x] Aggiungere validatore locale iniziale a regole.
 - [ ] Collegare eventuale validatore prezzo/prodotto evoluto.
-- [ ] Registrare motivi di approvazione/scarto.
+- [x] Registrare motivi di approvazione/scarto.
 - [ ] Definire policy per retry e fallback quando il validatore non risponde.
-- [ ] Implementare cleanup retention pochi giorni.
+- [x] Implementare cleanup retention pochi giorni.
 
 ## Fase 4 - Deploy
 

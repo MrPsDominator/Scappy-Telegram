@@ -17,6 +17,14 @@ class RawTelegramMessage(BaseModel):
     has_media: bool = False
 
 
+class PipelineDecision(str, Enum):
+    APPROVED = "approved"
+    DUPLICATE = "duplicate"
+    ERROR = "error"
+    IGNORED = "ignored"
+    REJECTED = "rejected"
+
+
 class OfferCandidate(BaseModel):
     source_channel: str
     source_message_id: int
@@ -47,3 +55,11 @@ class PublishResult(BaseModel):
     published: bool
     message_id: int | None = None
     reason: str | None = None
+
+
+class PipelineResult(BaseModel):
+    decision: PipelineDecision
+    reason: str | None = None
+    fingerprint: str | None = None
+    title: str | None = None
+    published: bool = False

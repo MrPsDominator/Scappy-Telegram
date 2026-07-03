@@ -19,8 +19,9 @@ Non deployare finche mancano canali e token Telegram. Il validatore puo partire 
 1. creare una directory dedicata sulla VM, per esempio `/opt/scappy-telegram`;
 2. copiare o clonare il progetto;
 3. creare `/opt/scappy-telegram/.env` direttamente sulla VM;
-4. avviare con `docker compose up -d --build`;
-5. verificare log con `docker compose logs -f scappy-telegram`.
+4. creare la sessione Telegram con `docker compose run --rm scappy-telegram scappy-telegram login`;
+5. avviare con `docker compose up -d --build`;
+6. verificare log con `docker compose logs -f scappy-telegram`.
 
 ## Esempio manuale
 
@@ -35,6 +36,8 @@ Poi modificare `.env` sulla VM e avviare:
 
 ```bash
 cd /opt/scappy-telegram
+docker compose run --rm scappy-telegram scappy-telegram init-db
+docker compose run --rm scappy-telegram scappy-telegram login
 docker compose up -d --build
 docker compose logs -f scappy-telegram
 ```

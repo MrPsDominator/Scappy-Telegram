@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     startup_backfill_limit: int = 0
     database_url: str = Field(default="sqlite:////app/data/scappy.sqlite3")
     dry_run: bool = True
+    log_level: str = "INFO"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
