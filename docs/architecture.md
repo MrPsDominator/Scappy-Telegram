@@ -99,7 +99,6 @@ Deve ricevere solo offerte approvate. In caso di errore Telegram, il tentativo v
 - `models.py`: modelli dati interni.
 - `cleaning.py`: estrazione link, pulizia URL, prima estrazione candidato.
 - `dedupe.py`: fingerprint stabile per non ripubblicare la stessa offerta.
-- `validator.py`: client HTTP verso validatore esterno.
 - `validator.py`: validatore locale a regole o client HTTP esterno.
 - `publisher.py`: pubblicazione via Bot API.
 - `storage.py`: persistenza SQLite.
